@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>T Level DSD – Core Paper 2, Content Area 8: Security</title>
+<meta name="description" content="Specification-aligned knowledge source for T Level Digital Software Development Core Paper 2, Content Area 8: Security.">
+<style>
+:root{--ink:#172033;--muted:#4b5563;--line:#d8dee9;--panel:#f7f8fb;--blue:#1456a0;--soft:#eaf3ff;--green:#ecfdf3;--amber:#fff7df;--red:#fff1f2;--purple:#faf0ff;--dark:#111827;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}*{box-sizing:border-box}html{scroll-behavior:smooth}body{max-width:1120px;margin:auto;padding:1.25rem;font-family:var(--sans);line-height:1.6;color:var(--ink)}h1{margin:0;font-size:clamp(1.8rem,4vw,2.55rem)}h2{margin:2rem 0 .65rem;padding-bottom:.35rem;border-bottom:3px solid var(--blue)}h3{margin:1.3rem 0 .4rem}h4{margin:1rem 0 .3rem}p,ul,ol{margin:.45rem 0}li{margin:.18rem 0}table{width:100%;border-collapse:collapse;margin:.75rem 0 1rem;font-size:.94rem}th,td{border:1px solid var(--line);padding:.52rem .6rem;text-align:left;vertical-align:top}th{background:#eef2f7}tbody tr:nth-child(even){background:#fbfcfe}.subtitle,.small{color:var(--muted)}.small{font-size:.91rem}.scope{margin:1rem 0;padding:.9rem 1rem;background:var(--soft);border:2px solid #9dc6f2;border-radius:.65rem}.spec{display:inline-block;margin-left:.25rem;padding:.04rem .4rem;border:1px solid #a5b4fc;border-radius:.4rem;background:#eef2ff;color:#3730a3;font-size:.8rem;font-weight:700}.box{margin:.8rem 0;padding:.72rem .9rem;border-left:5px solid var(--blue);border-radius:.35rem;background:var(--panel)}.must{background:var(--green);border-left-color:#22c55e}.exam{background:var(--amber);border-left-color:#f59e0b}.pitfall{background:var(--red);border-left-color:#fb7185}.agent{background:var(--purple);border-left-color:#c084fc}.box-title{display:block;font-weight:800}.nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.5rem;margin:1rem 0}.nav a{display:block;padding:.6rem .7rem;border:1px solid var(--line);border-radius:.45rem;background:var(--panel);text-decoration:none;color:var(--blue);font-weight:700}@media print{body{max-width:none;padding:0;font-size:10pt}.nav{display:none}.box,table{break-inside:avoid}h2,h3{break-after:avoid}}
+</style></head><body>
+<header><h1>T Level Digital Software Development</h1><p class="subtitle"><strong>Core Paper 2 · Content Area 8: Security</strong></p><div class="scope"><strong>Scope:</strong> specification references <strong>8.1.1–8.4.2</strong> only: security risks, threats and vulnerabilities, threat mitigation, the CIA triad and the IAAA model.</div><p class="small">Purpose: accurate student revision and dependable AO1–AO3 exam-question generation. Examples support the specification without introducing unrelated cybersecurity content.</p></header>
+<nav class="nav"><a href="#8-1">8.1 Security risks</a><a href="#8-2">8.2 Threats and vulnerabilities</a><a href="#8-3">8.3 Threat mitigation</a><a href="#8-4">8.4 Effective security</a><a href="#links">Threat-response links</a><a href="#agent">Agent guidance</a><a href="#glossary">Glossary</a></nav>
+
+<section id="8-1"><h2>8.1 Security Risks</h2>
+<h3>Confidential information held by organisations <span class="spec">8.1.1</span></h3>
+<table><thead><tr><th>Category</th><th>Specified examples</th></tr></thead><tbody>
+<tr><td>Human Resources</td><td>Salaries and benefits; staff personal details.</td></tr>
+<tr><td>Commercially sensitive information</td><td>Client details; stakeholder details; intellectual property; sales numbers; contracts.</td></tr>
+<tr><td>Access information</td><td>Usernames; passwords; MFA details; PINs; access codes; passphrases; biometric data.</td></tr>
+</tbody></table>
+<h3>Why information must remain confidential <span class="spec">8.1.2</span></h3>
+<table><thead><tr><th>Information</th><th>Specified reason</th></tr></thead><tbody>
+<tr><td>Salaries and benefits</td><td>Prevent competitors offering higher wages to attract staff; prevent salary comparison and demands for comparable pay.</td></tr>
+<tr><td>Staff details</td><td>Protect privacy; prevent competitors directly contacting staff.</td></tr>
+<tr><td>Intellectual property</td><td>Prevent competitors copying designs.</td></tr>
+<tr><td>Client details</td><td>Prevent competitors contacting clients; protect client privacy.</td></tr>
+<tr><td>Sales numbers</td><td>Must be protected as commercially sensitive organisational information.</td></tr>
+<tr><td>Access information</td><td>Prevent unauthorised access.</td></tr>
+</tbody></table>
+<h3>Impact of failing to maintain privacy and confidentiality <span class="spec">8.1.3</span></h3>
+<ul><li>Non-compliance with regulations, including possible loss of licence to practise.</li><li>Loss of trust.</li><li>Damage to the organisation's image.</li><li>Financial loss through fines, refunds, lost earnings or terminated contracts.</li><li>Legal action.</li><li>Reduced security.</li></ul>
+<div class="box exam"><span class="box-title">Application chain</span>Identify the information, explain why it needs protection, then link a failure to a specific impact on the organisation or individual.</div>
+</section>
+
+<section id="8-2"><h2>8.2 Types of Threats and Vulnerabilities</h2>
+<h3>Technical threats, impacts and mitigation <span class="spec">8.2.1</span></h3>
+<p>A <strong>threat</strong> is something capable of causing harm. A <strong>vulnerability</strong> is a weakness that can be exploited. A threat may exploit a vulnerability and cause an impact.</p>
+<table><thead><tr><th>Threat</th><th>How it threatens a system</th><th>Possible prevention/mitigation direction</th></tr></thead><tbody>
+<tr><td>Botnet</td><td>A group of compromised devices can be controlled to carry out malicious activity.</td><td>Protection software, updates, monitoring and restricting compromise.</td></tr>
+<tr><td>DoS/DDoS</td><td>Overwhelms a service with traffic/requests to reduce availability; DDoS uses distributed sources.</td><td>Monitoring, traffic controls, resilient capacity and incident response.</td></tr>
+<tr><td>Password cracking/brute force</td><td>Repeated attempts are used to discover access credentials.</td><td>Strong access policies, MFA, password management and monitoring.</td></tr>
+<tr><td>Cross-site scripting</td><td>Malicious script is introduced into content delivered to users.</td><td>Secure development, input/output controls, updates and testing.</td></tr>
+<tr><td>SQL injection</td><td>Malicious input attempts to alter database queries/operations.</td><td>Secure input handling, restricted access, testing and updates.</td></tr>
+<tr><td>Buffer overflow</td><td>Data exceeds an allocated buffer and may disrupt or alter execution.</td><td>Secure development, updates and testing.</td></tr>
+<tr><td>Virus</td><td>Malicious code attaches to files/programs and spreads when activated.</td><td>Anti-malware, updates, access control and staff awareness.</td></tr>
+<tr><td>Worm</td><td>Self-replicates and spreads across systems/networks.</td><td>Updates, anti-malware, segregation and monitoring.</td></tr>
+<tr><td>Keylogger</td><td>Records keystrokes to capture sensitive information.</td><td>Anti-malware, controlled software installation, monitoring and MFA.</td></tr>
+<tr><td>Ransomware</td><td>Prevents access to data/systems and demands payment.</td><td>Backups, updates, protection software, access controls and training.</td></tr>
+<tr><td>Spyware</td><td>Secretly collects information/activity.</td><td>Protection software, updates, permissions and user awareness.</td></tr>
+<tr><td>Remote access trojan</td><td>Provides unauthorised remote control disguised as legitimate content/software.</td><td>Anti-malware, application control, training and monitoring.</td></tr>
+<tr><td>Phishing</td><td>Deceptive communication attempts to obtain information or trigger unsafe actions.</td><td>Training, filtering, verification and reporting procedures.</td></tr>
+<tr><td>Spear phishing</td><td>Targeted phishing tailored to a person/organisation.</td><td>Targeted awareness, independent verification and controlled disclosure.</td></tr>
+<tr><td>Smishing</td><td>Phishing through text messages.</td><td>Awareness and verification through trusted channels.</td></tr>
+<tr><td>Vishing</td><td>Phishing through voice calls.</td><td>Identity checking and independent verification.</td></tr>
+<tr><td>Pharming</td><td>Redirects users towards a fraudulent destination.</td><td>Secure DNS/network controls, certificates and monitoring.</td></tr>
+<tr><td>Watering-hole attack</td><td>Compromises a site/service likely to be used by intended targets.</td><td>Updates, browser/protection controls, monitoring and threat awareness.</td></tr>
+<tr><td>USB baiting</td><td>Malicious removable media is left to tempt a user to connect it.</td><td>Training, device controls and restrictions on removable media.</td></tr>
+<tr><td>DNS attack/redirection</td><td>Manipulates name resolution or redirects traffic.</td><td>Secure DNS configuration, monitoring and protected communications.</td></tr>
+<tr><td>Insecure API</td><td>Weak API security exposes systems/data or permits unauthorised actions.</td><td>API certification, access control, testing, updates and monitoring.</td></tr>
+<tr><td>Man-in-the-middle</td><td>An attacker intercepts or alters communication between parties.</td><td>Encryption, authenticated services, VPN and secure networks.</td></tr>
+<tr><td>Open/unsecured Wi-Fi</td><td>Traffic or devices may be exposed on an untrusted network.</td><td>VPN, encryption, secure alternatives and user guidance.</td></tr>
+</tbody></table>
+<p>Malicious hacking may involve hacktivists, nation states, organised crime or individuals.</p>
+
+<h3>Technical vulnerabilities <span class="spec">8.2.2</span></h3>
+<table><thead><tr><th>Vulnerability</th><th>Why it creates risk</th></tr></thead><tbody>
+<tr><td>Weak encryption</td><td>Information may be easier to expose or interpret.</td></tr><tr><td>Inadequate password policy</td><td>Credentials may be easier to guess, reuse or compromise.</td></tr><tr><td>Failure to use MFA</td><td>A stolen single factor may be sufficient for access.</td></tr><tr><td>Out-of-date hardware</td><td>May lack support, capability or compatibility for current protection.</td></tr><tr><td>Out-of-date software</td><td>May contain unpatched weaknesses or lack compatibility/support, including exposure to newly discovered flaws.</td></tr><tr><td>Out-of-date firmware</td><td>Device-level weaknesses may remain uncorrected.</td></tr>
+</tbody></table>
+
+<h3>Human threats and mitigation <span class="spec">8.2.3</span></h3>
+<table><thead><tr><th>Threat</th><th>Specified prevention/mitigation</th></tr></thead><tbody>
+<tr><td>Human error</td><td>File properties, confirmation boxes and staff training.</td></tr><tr><td>Malicious employee</td><td>Immediate removal from premises and immediate suspension of user accounts.</td></tr><tr><td>Disguised criminal</td><td>Accompany visitors and check visitor identification.</td></tr><tr><td>Poor cyber hygiene</td><td>Lock unattended machines; do not write passwords down; improve password management.</td></tr>
+</tbody></table>
+
+<h3>Physical vulnerabilities and mitigation <span class="spec">8.2.4</span></h3>
+<table><thead><tr><th>Vulnerability</th><th>Specified prevention/mitigation</th></tr></thead><tbody>
+<tr><td>Lack of access control</td><td>Entry-control systems.</td></tr><tr><td>Poor access control</td><td>Prevent tailgating; complex access codes; regular code changes; monitor access areas; audit staff access.</td></tr><tr><td>Nature of location</td><td>Protect against shoulder surfing, environmental threats and vandalism.</td></tr><tr><td>Poor system robustness</td><td>Use rugged machines where appropriate.</td></tr><tr><td>Natural disasters</td><td>Use physical protection, resilience, backup and recovery measures appropriate to the risk.</td></tr>
+</tbody></table>
+
+<h3>Impacts of threats and vulnerabilities <span class="spec">8.2.5</span></h3>
+<ul><li>Loss or leaking of sensitive data.</li><li>Unauthorised access to digital systems.</li><li>Data corruption.</li><li>Disruption of service.</li><li>Unauthorised access to restricted physical areas.</li></ul>
+<div class="box pitfall"><span class="box-title">Common misconception</span>A threat, vulnerability, impact and mitigation are not interchangeable. State each part of the chain accurately.</div>
+</section>
+
+<section id="8-3"><h2>8.3 Threat Mitigation</h2>
+<h3>Common mitigation techniques <span class="spec">8.3.1</span></h3>
+<p>Students must understand the <strong>purpose, process, benefits and drawbacks</strong> of the following techniques.</p>
+<table><thead><tr><th>Technique</th><th>Purpose/process</th><th>Benefit</th><th>Limitation/trade-off</th></tr></thead><tbody>
+<tr><td>Hardware/software security settings</td><td>Configure devices/applications to restrict unsafe behaviour or access.</td><td>Applies protection at system or application level.</td><td>Incorrect configuration can reduce protection or usability.</td></tr>
+<tr><td>Anti-malware</td><td>Detects, blocks, quarantines or removes malicious software.</td><td>Reduces malware risk.</td><td>Needs updates and may not recognise every new threat.</td></tr>
+<tr><td>Intrusion detection</td><td>Monitors activity for signs of attack or policy violation.</td><td>Supports detection and investigation.</td><td>May produce false alerts and requires monitoring/action.</td></tr>
+<tr><td>Hashing</td><td>Creates a one-way fixed representation used to check integrity or protect stored comparisons.</td><td>Supports integrity checking without reversible encryption.</td><td>Not intended to decrypt/recover original data.</td></tr>
+<tr><td>Symmetric encryption</td><td>Uses the same secret key to encrypt and decrypt.</td><td>Efficient for protecting larger quantities of data.</td><td>Secure key sharing/storage is required.</td></tr>
+<tr><td>Asymmetric encryption</td><td>Uses a related public/private key pair.</td><td>Supports secure exchange and identity-based uses without sharing a private key.</td><td>More processing is generally required than symmetric encryption.</td></tr>
+<tr><td>User access policies</td><td>Define permitted access and user responsibilities.</td><td>Creates consistent expectations and controls.</td><td>Must be communicated, enforced and updated.</td></tr>
+<tr><td>Staff vetting</td><td>Checks suitability/trust before granting sensitive responsibilities.</td><td>Reduces some insider risk.</td><td>Does not guarantee future behaviour and requires resources.</td></tr>
+<tr><td>Staff training</td><td>Develops ability to recognise and respond to risks.</td><td>Reduces avoidable human error/social-engineering success.</td><td>Needs reinforcement and does not remove all mistakes.</td></tr>
+<tr><td>Software-based access control</td><td>Restricts resources/actions according to permissions.</td><td>Limits unauthorised access.</td><td>Poorly assigned permissions create risk.</td></tr>
+<tr><td>Device hardening</td><td>Removes or disables unnecessary ports, services, software, permissions and access.</td><td>Reduces attack surface.</td><td>May remove needed functionality if applied poorly.</td></tr>
+<tr><td>Backups</td><td>Create recoverable copies using full, incremental or differential methods and safe storage.</td><td>Supports recovery after loss, corruption or ransomware.</td><td>Copies require storage, testing and protection; recovery takes time.</td></tr>
+<tr><td>Software updates</td><td>Apply fixes/improvements to applications and systems.</td><td>Corrects known vulnerabilities.</td><td>May create compatibility/disruption risks and needs management.</td></tr>
+<tr><td>Firmware/driver updates</td><td>Apply fixes to device-level software and hardware interfaces.</td><td>Corrects known device vulnerabilities/compatibility issues.</td><td>Incorrect or failed updates can affect operation.</td></tr>
+<tr><td>Air gap</td><td>Physically/logically isolates a system from other networks.</td><td>Strongly restricts remote access routes.</td><td>Reduces connectivity/convenience and does not remove local threats.</td></tr>
+<tr><td>API certification</td><td>Checks/assures APIs against required security expectations.</td><td>Supports trust in connected services.</td><td>Certification does not remove the need for ongoing monitoring and secure configuration.</td></tr>
+<tr><td>VPN</td><td>Creates an encrypted private connection over another network.</td><td>Protects traffic on untrusted connections.</td><td>Endpoint/account compromise remains possible; performance may be affected.</td></tr>
+<tr><td>MFA</td><td>Requires more than one authentication factor.</td><td>A stolen password alone may be insufficient.</td><td>Adds user effort and requires recovery/support processes.</td></tr>
+<tr><td>Password manager</td><td>Stores/generates credentials in a protected system.</td><td>Supports strong, unique passwords.</td><td>The manager/account becomes important to protect and recover.</td></tr>
+<tr><td>Port scanning</td><td>Checks systems for open/listening ports.</td><td>Identifies exposed services requiring investigation.</td><td>Results need interpretation; unauthorised scanning may be inappropriate.</td></tr>
+<tr><td>Penetration testing</td><td>Tests security by attempting to identify/exploit weaknesses under authorised conditions.</td><td>Provides evidence of exploitable weaknesses.</td><td>Requires permission, skill and careful scope; ethical and unethical hacking must be distinguished.</td></tr>
+</tbody></table>
+
+<h3>Processes and procedures assuring internet security <span class="spec">8.3.2</span></h3>
+<table><thead><tr><th>Control</th><th>Specified process/reason</th></tr></thead><tbody>
+<tr><td>Firewall configuration</td><td>Rules for inbound/outbound traffic, traffic types, applications and IP addresses.</td></tr><tr><td>Network segregation</td><td>Virtual, physical or offline network separation limits communication and spread between areas.</td></tr><tr><td>Network monitoring</td><td>Observes network activity to identify issues, unusual behaviour or possible threats.</td></tr><tr><td>Port scanning</td><td>Identifies exposed ports/services for review and corrective action.</td></tr>
+</tbody></table>
+<div class="box exam"><span class="box-title">Evaluation focus</span>No single control removes every risk. Strong answers select layered controls, apply them to the threat/vulnerability and acknowledge realistic limitations.</div>
+</section>
+
+<section id="8-4"><h2>8.4 Interrelationship of Components Required for Effective Security</h2>
+<h3>CIA triad <span class="spec">8.4.1</span></h3>
+<table><thead><tr><th>Element</th><th>Specified meaning</th><th>Example controls</th></tr></thead><tbody>
+<tr><td>Confidentiality</td><td>Data is kept private by controlling who has access.</td><td>Access control, encryption, MFA.</td></tr><tr><td>Integrity</td><td>Data has not been tampered with; maintaining confidentiality can support this.</td><td>Hashing, permissions, audit/monitoring.</td></tr><tr><td>Availability</td><td>Data is available and useful; ensuring integrity can support this.</td><td>Backups, redundancy, monitoring and recovery.</td></tr>
+</tbody></table>
+<p>The elements interrelate. For example, poor confidentiality can permit unauthorised changes, harming integrity; corrupted data may no longer be useful, harming availability.</p>
+
+<h3>IAAA model <span class="spec">8.4.2</span></h3>
+<table><thead><tr><th>Element</th><th>Purpose</th><th>Specified techniques/examples</th></tr></thead><tbody>
+<tr><td>Identification</td><td>Recognises the individual within a digital system.</td><td>Knowledge-based identification such as username; possession-based methods; biometric-based ID methods.</td></tr>
+<tr><td>Authentication</td><td>Verifies the identity claimed during identification.</td><td>MFA, passwords/passphrases and biometric authentication.</td></tr>
+<tr><td>Authorisation</td><td>Ensures authenticated users access only permitted resources/actions.</td><td>Role-based controls and access-control lists.</td></tr>
+<tr><td>Accountability</td><td>Ensures actions can be traced to the responsible user.</td><td>Audit logs and user activity.</td></tr>
+</tbody></table>
+<div class="box pitfall"><span class="box-title">Do not confuse IAAA stages</span>A username can identify a claimed user, a password can authenticate the claim, permissions authorise actions, and logs support accountability.</div>
+</section>
+
+<section id="links"><h2>Threat–Vulnerability–Impact–Mitigation Links</h2>
+<table><thead><tr><th>Scenario</th><th>Threat</th><th>Vulnerability</th><th>Possible impact</th><th>Relevant layered mitigation</th></tr></thead><tbody>
+<tr><td>Staff receive a targeted fake sign-in message.</td><td>Spear phishing</td><td>Low awareness; password-only login.</td><td>Stolen credentials and unauthorised access.</td><td>Training, independent verification, MFA, monitoring and account response.</td></tr>
+<tr><td>An unsupported server is exposed to the internet.</td><td>Malicious hacking/malware</td><td>Out-of-date software/firmware.</td><td>Data loss, corruption, unauthorised access or service disruption.</td><td>Updates, hardening, firewall rules, segregation, monitoring and backups.</td></tr>
+<tr><td>A worker uses open Wi-Fi to access organisational systems.</td><td>Man-in-the-middle attack</td><td>Unsecured network connection.</td><td>Interception or alteration of data.</td><td>VPN, encryption, MFA and secure network guidance.</td></tr>
+<tr><td>An authorised employee misuses access.</td><td>Malicious employee</td><td>Excessive privileges; inadequate monitoring.</td><td>Data leakage, corruption or unauthorised actions.</td><td>Least necessary access, logging, monitoring, account suspension and physical response.</td></tr>
+<tr><td>Ransomware encrypts live files.</td><td>Ransomware</td><td>Unpatched systems, unsafe actions or weak segregation.</td><td>Loss of availability and financial/reputational damage.</td><td>Updates, anti-malware, training, segregation, protected backups and recovery procedures.</td></tr>
+</tbody></table>
+</section>
+
+<section id="agent"><h2>Revision-Agent Guidance</h2>
+<div class="box agent"><span class="box-title">Strict scope</span>Generate questions only from Core Paper 2, Content Area 8, references 8.1.1–8.4.2. Do not introduce unrelated advanced cybersecurity content or operational attack instructions.</div>
+<h3>Paper 2 question design</h3>
+<ul><li>Map every question to a CA08 reference, command word, mark allocation and AO.</li><li>Use Section A-style knowledge/understanding questions and Section B-style contextual application, analysis and evaluation.</li><li>Across repeated sessions, reflect Paper 2 weighting: AO1a 10/90, AO1b 21/90, AO2 38/90, AO3a 12/90, AO3b 9/90.</li><li>AO2 should be prominent. Students should apply security knowledge to the organisation, system, information and threat in the scenario.</li><li>Do not force evaluation into every set. Use it only where a meaningful contextual judgement is possible.</li></ul>
+<h3>Question pathways</h3>
+<ul><li>Information → reason for confidentiality → impact of failure.</li><li>Threat → vulnerability → impact → prevention/mitigation.</li><li>Security control → process → benefit → drawback → suitability.</li><li>CIA element → risk → relevant control → organisational effect.</li><li>IAAA stage → technique → benefit/drawback → scenario application.</li></ul>
+<h3>Common misconceptions to detect</h3>
+<ul><li>Threat and vulnerability mean the same thing.</li><li>Privacy and confidentiality failures only affect money.</li><li>Phishing, spear phishing, smishing and vishing are identical delivery methods.</li><li>Anti-malware prevents all attacks.</li><li>Hashing is reversible encryption.</li><li>Symmetric and asymmetric encryption use keys in the same way.</li><li>MFA makes an account impossible to compromise.</li><li>A backup prevents malware infection rather than supporting recovery.</li><li>A VPN protects an unsafe endpoint from every threat.</li><li>Penetration testing is authorised by default.</li><li>Identification and authentication are the same stage.</li><li>Authentication automatically grants access to every resource.</li><li>Confidentiality, integrity and availability operate independently.</li></ul>
+<h3>Marking emphasis</h3><ul><li>Generic security facts should not receive full AO2 credit without scenario application.</li><li>Analysis must connect causes, weaknesses, impacts or controls.</li><li>Evaluation must consider benefits/limitations and reach a supported contextual judgement.</li><li>Accept valid alternatives only when consistent with the specification and scenario.</li></ul>
+</section>
+
+<section id="glossary"><h2>Core Area 8 Glossary</h2>
+<table><thead><tr><th>Term</th><th>Definition</th></tr></thead><tbody>
+<tr><td>Threat</td><td>Something capable of causing harm to systems, data, information or people.</td></tr><tr><td>Vulnerability</td><td>A weakness that may be exploited by a threat.</td></tr><tr><td>Mitigation</td><td>A control/action used to prevent or reduce risk or impact.</td></tr><tr><td>Confidentiality</td><td>Keeping data private by controlling access.</td></tr><tr><td>Integrity</td><td>Ensuring data has not been tampered with.</td></tr><tr><td>Availability</td><td>Ensuring data/services are available and useful when required.</td></tr><tr><td>Malware</td><td>Malicious software intended to disrupt, damage, spy or gain unauthorised control.</td></tr><tr><td>Social engineering</td><td>Manipulating people into disclosing information or carrying out unsafe actions.</td></tr><tr><td>Encryption</td><td>Transforming data to protect it from unauthorised interpretation.</td></tr><tr><td>Hashing</td><td>Producing a one-way fixed representation of data.</td></tr><tr><td>MFA</td><td>Authentication using more than one factor.</td></tr><tr><td>Firewall</td><td>A control applying traffic rules to network communications.</td></tr><tr><td>Network segregation</td><td>Separating networks/areas to control communication and limit spread.</td></tr><tr><td>Identification</td><td>Claiming or recognising an identity.</td></tr><tr><td>Authentication</td><td>Verifying a claimed identity.</td></tr><tr><td>Authorisation</td><td>Granting permitted access/actions to an authenticated user.</td></tr><tr><td>Accountability</td><td>Making actions traceable to a responsible user.</td></tr>
+</tbody></table></section>
+<footer><hr><p class="small"><strong>Knowledge-source boundary:</strong> Core Paper 2, Content Area 8 only. Use alongside the current approved specification.</p></footer>
+</body></html>
